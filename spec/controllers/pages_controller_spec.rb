@@ -7,17 +7,17 @@ describe PagesController do
     it "should be successful" do
       get 'home'
       response.should be_success
-    end
+end
     
-    it "should have the right title" do
+  it "should have the right title" do
       get 'home'
       response.should have_selector("title",
                       :content =>"Ruby on Rails Tutorial Sample App | Home")
-  end
-  it "should have a non-blank body" do
+   end
+   it "should have a non-blank body" do
     get 'home'
     response.body.should_not =~ /<body>\s*<\/body>/
-  end
+   end
 end
 
   describe "GET 'contact'" do
@@ -31,6 +31,7 @@ end
                         :content =>"Ruby on Rails Tutorial Sample App | Contact")
     end
   end
+  
   describe "GET 'about'" do
      it "should be successful" do
        get 'about'
@@ -41,5 +42,18 @@ end
          response.should have_selector("title",
                          :content =>"Ruby on Rails Tutorial Sample App | About")
      end
-   end
+ end
+ 
+   describe "GET 'Help'" do
+      it "should be successful" do
+        get 'help'
+        response.should be_success
+      end
+       it "should have the right title" do
+          get 'help'
+          response.should have_selector("title",
+                          :content =>"Ruby on Rails Tutorial Sample App | Help")
+      end
+    end
+
 end
